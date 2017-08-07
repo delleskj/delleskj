@@ -227,12 +227,12 @@ div.box2x2 {
 	font-family: 'Josefin Sans', sans-serif; 
 }
 
-.text ol {
+.text ul {
 	margin-left: 1em;
 	font-weight: 700;
 }
 
-.text ol  p {
+.text ul  p {
 	margin-left: -1em;
 	font-weight: 400;
 }

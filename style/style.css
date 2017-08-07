@@ -161,6 +161,20 @@ div.box4x2 {
 	padding-top: 56.25%;
 }
 
+div.box2x2 {
+	margin:  30px auto;
+	width: 50%;
+	position: relative;
+}
+
+/* and the tall boxes 16:18 */
+.box2x2:before{
+	content: "";
+	display: block;
+	padding-top: 112.5%;
+}
+
+
 
 .content{
 	position:  absolute;
@@ -179,7 +193,7 @@ div.box4x2 {
 	transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
-.content:hover {
+#tab-content1 .content:hover {
 	/* box-shadow: 0px 0px 2px 2px var(--shadowColor); */
 	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
@@ -194,7 +208,68 @@ div.box4x2 {
 }
 
 
+/* content settings for the about me site */
+/* text boxes: */
+.content.text {
+	padding: 10px 20px;
+	font-size: 1.75rem;
+	/* font-size: 2vw; */
+	font-weight: 400;
+	line-height: 1.3em;
+	font-family: 'Josefin Sans', 'Verdana', sans-serif;
+	overflow: hidden;
+}
+.text h3 {
+	font-size: 2rem;
+	line-height: 1.5em;
+	font-weight: 700;
+	text-decoration: underline;
+	font-family: 'Josefin Sans', sans-serif; 
+}
 
+.text ol {
+	margin-left: 1em;
+	font-weight: 700;
+}
+
+.text ol  p {
+	margin-left: -1em;
+	font-weight: 400;
+}
+
+/* highlight links */
+.content.text a {
+	padding: 2px;
+	text-decoration: none;
+	line-height: 1.6em;
+	color: #000;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12),
+				0 1px 2px rgba(0,0,0,0.24);
+
+	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.content a:hover   {
+	color:#aaa;
+	text-decoration:underline;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+				0 10px 10px rgba(0,0,0,0.22);
+	border: none;
+}
+
+/* image boxes: */
+div.boxImage img{
+	display: block; 
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	overflow: hidden;
+}
+.content.boxImage:hover {
+	/* box-shadow: 0px 0px 2px 2px var(--shadowColor); */
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+/* end content style for about me part */
 
 /* thumbnail text hover settings*/
 
@@ -286,3 +361,130 @@ a:link { }
 a:visited {text-decoration: overline;}
 a:hover   {color:#ff0000; background-color:transparent; text-decoration:underline}
 a:active { }
+
+
+/* css modal for big pictures on click (disabled on width < 960px)*/
+.picture-modal{
+	z-index:3;
+	display:none;
+	padding-top:0;
+	position:fixed;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	background-color:rgb(0,0,0);
+	background-color:rgba(0,0,0,0.4);
+}
+.picture-modal-content{
+	margin: auto;
+	background-color: rgba(0,0,0,0);
+	position:relative;
+	top: 50%;
+	transform: translateY(-50%);
+	width:95%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	padding-top: 53.44%;
+}
+
+.picture-modal:target {
+	display: block;
+}
+
+.picture-animate-zoom {
+	-webkit-animation:animatezoom 0.4s;
+	animation:animatezoom 0.4s
+}
+@-webkit-keyframes animatezoom{from{-webkit-transform:scale(0) translateY(0)} to{-webkit-transform:scale(1) translateY(-50%)}}
+@keyframes animatezoom{from{transform:scale(0) translateY(0)} to{transform:scale(1) translateY(-50%)}}
+
+/* modal back element */
+/* nvm just use the #backButton it's displayed anyway ;) */
+
+
+/* media query just for the contacts site */
+
+@media screen and (max-width: 960px){
+
+		
+	/* disable picture lightboxes for this screenwidth */
+	#tab-content2 .picture-modal:target {
+		display: none;
+	}
+	
+	/* div#wrapper { */
+		/* max-width: 960px; */
+		/* min-width: 480px; */
+
+		/* margin: 0px auto; */
+		/* text-align: left; */
+	/* } */
+
+	
+	div.box2x1 {
+		width: 100%;	
+		position: relative;
+	}
+
+	div.box2x2 {
+		width: 100%;
+		position: relative;
+	}
+	
+}
+
+
+/* font sizes: */
+@media screen and (min-width: 1101px) and (max-width: 1280px) {
+	html{
+		font-size: 14px;
+	}
+}
+
+@media screen and (min-width: 961px) and (max-width: 1100px) {
+	html{
+		font-size: 12px;
+	}
+}
+
+@media screen and (min-width: 701px) and (max-width: 960px) {
+	html{
+		font-size: 18px;
+	}
+}
+
+@media screen and (min-width: 640px) and (max-width: 700px) {
+	html{
+		font-size: 16px;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	
+	html {
+		font-size: 16px;
+	}
+	
+	
+	/* set all textboxes to 16:18 */
+	.box4x2.text,
+	.box2x2.text,
+	.box2x1.text{
+		/* border: 3px solid red; */
+	}
+	.box4x2.text:before,
+	.box2x1.text:before 
+	{
+		content: "";
+		display: block;
+		padding-top: 112.5%;
+	}
+	.box2x2.text:before
+	{
+		content: "";
+		display: block;
+		padding-top: 225%;
+	}
+}

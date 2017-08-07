@@ -148,7 +148,7 @@ div.box4x2 {
 	clear: both;
 }
 
-/* tweaking the margin between floated and not floated elements bcause fuck you css */
+/* tweaking the margin between floated and not floated elements because fuck you css */
 div.margin-before-noFloat {
 	margin-bottom: 60px;
 }

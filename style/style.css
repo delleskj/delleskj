@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css?family=Josefin+Sans:400,700';
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,700');
 @import url('https://fonts.googleapis.com/css?family=Merriweather+Sans');
 * {
     margin: 0px;
@@ -19,7 +19,8 @@ html {
 body {
     text-align: center;
     font-family: 'Josefin Sans' , Arial, Helvetica, sans-serif; 
-    background-color: var(--backgroundColor); 
+    background-color: var(--backgroundColor);
+	color: var(--textColor);
 }
 
 
@@ -31,15 +32,13 @@ div#header {
 	margin-left: 0em;
 	padding: 1em 0em 0em 0em;
 	text-align: center;
-	/* background-color:  #333; */
-	color: var(--textColor);
 	/* box-shadow: 0px 0px 2px 2px #000; */
 	font-style: normal;
-		background-color: var(--backgroundColorWrap);
+		/* background-color: var(--backgroundColorWrap); */
 }
 
 h1{
-	font-size: 6.25rem;
+	font-size: 5.25rem;
 	line-height: 1.5em;
 	font-weight: 400;
 }
@@ -50,110 +49,35 @@ h2 {
 	
 } 
 
-/* tabs */
-div.tab-menu {
-	margin: 0 auto;
-	width: 30%;
-	position: relative;
-	font-size: 0.75em;
-	clear: both;
-}
-
-
-#tab-content1, #tab-content2 {
-  clear: both;
-  display: none;
-}
-
-div.tab-label-content {
-	width: 50%;
-	text-align: center;
-	/* cursor: pointer; */
-	margin-bottom: 3em;
-	background-color: #fff;
-	text-transform: uppercase;
-	line-height: 3em;
-}
-label {
-	/* padding: 1.2em; */
-	cursor: pointer;
-	color: rgba(0,0,0, 0.7);
-	transition: color 0.2s ease;
-	width: 100%;
-	font-weight: 700;
-}
-/* label:hover {
-	background-color: #aaa;
-} */
-
-
-input[type="radio"][name="tabs"] {
-  position: absolute;
-  display: none;
-  z-index: -10;
-}
-
-.slide {
-  background: #aaa;
-  width: calc(100% / 2);
-  height: 2px;
-  position: absolute;
-  left: 0;
-  top: calc(3em - 2px);
-  transition: left 0.3s ease-out;
-}
-
-
-/* specific styes that have to be made for each tab because of the html structure that i wanted */
-input[type="radio"][name="tabs"]:nth-of-type(1):checked ~ #tab-content1 {
-  display: block;
-}
-input[type="radio"][name="tabs"]:nth-of-type(2):checked ~ #tab-content2 {
-  display: block;
-}
-
-input[type="radio"][name="tabs"]:nth-of-type(1):checked ~ .tab-menu .slide {
-  left: calc((100% / 2) * 0);
-}
-input[type="radio"][name="tabs"]:nth-of-type(2):checked ~ .tab-menu .slide {
-  left: calc((100% / 2) * 1);
-}
-
-input[type="radio"][name="tabs"]:nth-of-type(1):checked ~ .tab-menu .tab1-label label {
-  color: #000;
-}
-input[type="radio"][name="tabs"]:nth-of-type(2):checked ~ .tab-menu .tab2-label label{
-  color: #000;
-}
-
-
-/* end tabs */
 
 div#wrapper {
 	min-width: 450px;
 	max-width: 1280px;
 	margin: 0px auto;
     text-align: left;
-
 }
-
-
-div#content {
-	font-size: 1.4em;
-    color: var(--textColor);
-}
-
 
 
 
 div.box2x1 {
+	margin: 30px auto;
+	width: 50%;
+	position: relative;
+}
+div.box2x2 {
+	margin:  30px auto;
 	width: 50%;
 	position: relative;
 }
 div.box4x2 {
+	margin:  30px auto;
 	width: 100%;
 	position: relative;
 }
+
+
+
+
 
 /* to make the boxes 16:9 ratio */
 .box4x2:before, .box2x1:before {
@@ -162,11 +86,6 @@ div.box4x2 {
 	padding-top: 56.25%;
 }
 
-div.box2x2 {
-	margin:  30px auto;
-	width: 50%;
-	position: relative;
-}
 
 /* and the tall boxes 16:18 */
 .box2x2:before{
@@ -188,26 +107,42 @@ div.box2x2 {
 	border-radius: 2px;
 	
 	color: var(--textColor);
+	background-color: var(--backgroundColor);
 	/* box-shadow: 0px 0px 4px 4px var(--shadowColor); */
 	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 	
 	transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
-#tab-content1 .content:hover {
-	/* box-shadow: 0px 0px 2px 2px var(--shadowColor); */
-	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+.left {
+	float: left;
+	max-width: 100%;
+}
+
+.right {
+	float: right;
+	max-width: 100%;
+}
+
+.noFloat {
+	max-width: 100%;
+	clear: both;
+}
+
+.center {
+	margin: 10px auto;
 }
 
 
-.thumbnailPicture-frame img {
-	display: block; 
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	overflow: hidden;
+.space-top {
+	padding-top: 0.5em;			  
 }
 
+.indent {
+	/* text-indent: 1em; */
+	margin-left: 1em;
+}
 
 /* content settings for the about me site */
 /* text boxes: */
@@ -222,9 +157,6 @@ div.box2x2 {
 	overflow: hidden;
 }
 
-.content p {
-	font-family: 'Merriweather Sans', sans-serif;
-}
 
 .text h3 {
 	font-size: 2rem;
@@ -235,14 +167,22 @@ div.box2x2 {
 	margin-bottom: 0.25em;
 }
 
+.text h4 {
+	font-size: 1.5rem;
+	line-height: 1.5em;
+	font-weight: 400;
+	font-family: 'Josefin Sans', sans-serif;
+	/* text-decoration: underline; */	
+	margin: 0.25em 0em 0.25em 0em;
+}
+
 .text ul {
-	margin-left: 1em;
-	font-weight: 700;
+	margin-left: 1em;	
+	list-style-type: square;
 }
 
 .text ul  p {
-	margin-left: -1em;
-	font-weight: 400;
+	margin-left: -1em;	
 }
 
 /* highlight links */
@@ -272,99 +212,20 @@ div.boxImage img{
 	object-fit: cover;
 	overflow: hidden;
 }
+
 .content.boxImage:hover {
 	/* box-shadow: 0px 0px 2px 2px var(--shadowColor); */
 	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-/* end content style for about me part */
-
-/* thumbnail text hover settings*/
-
-div.thumbnail-text {
-	
-	width: 100%;
-	height: 100%;
-	
-	background: rgba(0,0,0,0.7);
-	color: white;
- 	cursor: pointer;
-	display: table; 
-	position: absolute;
-	left: 0;
-	top: 0; 
-	
-	opacity: 0;
-	transition: opacity 400ms; 
-}
- 
-.tab-content div:hover div.thumbnail-text {
-	opacity: 1;
-} 
- 
-/* thumbnail text settings */
-div.thumbnail-text div{
-	padding: 0.5em 1em;
-	display: table-cell;
-	text-align: left;
-	vertical-align: bottom;
-} 
-div.thumbnail-text div p{
-	text-align: left;
-	font-size: 2rem;
-}
-div.thumbnail-text div h3{
-	font-size: 3rem;
-	padding-bottom: 0.4em;
-	text-decoration: underline;
-}
 
 
-@media screen and (min-width: 641px) and (max-width: 960px) {
-	html {
-		font-size: 11px;
-	}
-}
-@media screen and (max-width: 640px) {
-	html {
-		font-size: 8px;
-	}
-}
 
 
-div#footer {
-	color: var(--backgroundColor);
-	text-align: center;
-    clear: both;
-	height: 3em;
-	font-size: 100px;
-	line-height: 1.5em;
-	font-weight: 400;
-	
-	/* border-top: 3px solid #808080; */
-	/* border-bottom-left-radius: 10px; */
-	/* border-bottom-right-radius: 10px; */
-}
 
-.left {
-	float: left;
-	max-width: 100%;
-}
 
-.right {
-	float: right;
-	max-width: 100%;
-}
 
-.noFloat {
-	clear: both;
-}
-
-.center {
-	margin: 10px auto;
-}
-
-/* damit die browser keinen mist machen */
+/* reset link behavior for each browser */
 a:link { }
 a:visited {text-decoration: overline;}
 a:hover   {color:#ff0000; background-color:transparent; text-decoration:underline}
@@ -412,36 +273,18 @@ a:active { }
 /* nvm just use the #backButton it's displayed anyway ;) */
 
 
-/* media query just for the contacts site */
-
-@media screen and (max-width: 960px){
-
-		
-	/* disable picture lightboxes for this screenwidth */
-	#tab-content2 .picture-modal:target {
-		display: none;
-	}
-	
-	/* div#wrapper { */
-		/* max-width: 960px; */
-		/* min-width: 480px; */
-
-		/* margin: 0px auto; */
-		/* text-align: left; */
-	/* } */
-
-	
-	div.box2x1 {
-		width: 100%;	
-		position: relative;
-	}
-
-	div.box2x2 {
-		width: 100%;
-		position: relative;
-	}
-	
+.boxImage > iframe {
+	width: 100%;
+	height: 100%;
 }
+
+.boxImage > video {
+	width: 100%;
+	height: 100%;
+}
+
+
+
 
 
 /* font sizes: */

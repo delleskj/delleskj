@@ -1,47 +1,6 @@
-@import 'https://fonts.googleapis.com/css?family=Josefin+Sans:400,700';
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,700');
 @import url('https://fonts.googleapis.com/css?family=Merriweather+Sans');
-* {
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
-	letter-spacing: normal;
-}
-
-html {
-    height: 100.2%;
-	font-size: 16px;
-    /* font-size: 62.5%; */
-}
-
-
-
-
-body {
-    text-align: center;
-    font-family: 'Josefin Sans', sans-serif; 
-    background-color: #fff;
-	color: #000;
-}
-
-
-div#header {
- 	font-family: 'Josefin Sans', sans-serif;  
-	margin-top: 2em;
-    margin-bottom: 5em;
-	margin-left: 0em;
-	padding: 1em 0em 0em 0em;
-	text-align: center;
-	/* background-color:  #333; */
-	font-style: normal;
-}
-
-h1{
-	font-size: 6.25rem;
-	line-height: 1.5em;
-	font-weight: 400;
-}
-
-
+@import "style.css";
 
 
 div#BackButton {
@@ -72,113 +31,9 @@ div#BackButton:hover {
 }
 
 
-
-div#wrapper {
-	max-width: 1280px;
-	min-width: 900px;
-
-	margin: 0px auto;
-    text-align: left;
-}
-
-
-
-div.box2x1 {
-	margin: 30px auto;
-	width: 50%;
-	position: relative;
-}
-div.box2x2 {
-	margin:  30px auto;
-	width: 50%;
-	position: relative;
-}
-div.box4x2 {
-	margin:  30px auto;
-	width: 100%;
-	position: relative;
-}
-
-/* to make the boxes 16:9 ratio */
-.box4x2:before, .box2x1:before {
-	content: "";
-	display: block;
-	padding-top: 56.25%;
-}
-/* and the tall boxes 16:18 */
-.box2x2:before{
-	content: "";
-	display: block;
-	padding-top: 112.5%;
-}
-
-.content{
-	position:  absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	margin: 10px;
-	
-	background-color: #fff;
-	/* color: #fff; */
-	/* box-shadow: 0px 0px 2px 2px #000; */
-	border: 2px solid #fff;
-	
-	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-	transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
-}
-
-.content.boxImage:hover {
-	/* box-shadow: 0px 0px 2px 2px var(--shadowColor); */
-	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-
-.left {
-	float: left;
-	max-width: 100%;
-}
-
-.right {
-	float: right;
-	max-width: 100%;
-}
-
-.noFloat {
-	max-width: 100%;
-	clear: both;
-}
-
 /* tweaking the margin between floated and not floated elements because fuck you css */
 div.margin-before-noFloat {
 	margin-bottom: 60px;
-}
-
-
-
-
-.space-top {
-	padding-top: 0.5em;
-}
-
-/* text boxes: */
-.content.text {
-	padding: 10px 20px;
-	font-size: 1.25rem;
-	/* font-size: 2vw; */
-	/* font-weight: 400; */
-	line-height: 1.5em;
-	font-family: 'Merriweather Sans', sans-serif;
-	overflow: hidden;
-}
-
-h3 {
-	font-size: 2rem;
-	line-height: 1.5em;
-	font-weight: 700;
-	text-decoration: underline;
-	font-family: 'Josefin Sans', sans-serif;
-	margin-bottom: 0.25em;
 }
 
 ol {
@@ -191,84 +46,11 @@ ol  p {
 	font-weight: 400;
 }
 
-/* image boxes: */
-div.boxImage img{
-	display: block; 
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	overflow: hidden;
-}
 
 
-/* css modal for big pictures on click (disabled on width < 960px)*/
-.picture-modal{
-	z-index:3;
-	display:none;
-	padding-top:0;
-	position:fixed;
-	left:0;
-	top:0;
-	width:100%;
-	height:100%;
-	overflow:hidden;
-	background-color:rgb(0,0,0);
-	background-color:rgba(0,0,0,0.4);
-}
-.picture-modal-content{
-	margin: auto;
-	background-color: rgba(0,0,0,0);
-	position:relative;
-	top: 50%;
-	transform: translateY(-50%);
-	width:95%;
-	background-repeat: no-repeat;
-	background-size: contain;
-	padding-top: 53.44%;
-}
 
-.picture-modal:target {
-	display: block;
-}
 
-.picture-animate-zoom {
-	-webkit-animation:animatezoom 0.4s;
-	animation:animatezoom 0.4s
-}
-@-webkit-keyframes animatezoom{from{-webkit-transform:scale(0) translateY(0)} to{-webkit-transform:scale(1) translateY(-50%)}}
-@keyframes animatezoom{from{transform:scale(0) translateY(0)} to{transform:scale(1) translateY(-50%)}}
 
-/* modal back element */
-/* nvm just use the #backButton its displayed anyway ;) */
-
-.boxImage > iframe {
-	width: 100%;
-	height: 100%;
-}
-
-.boxImage > video {
-	width: 100%;
-	height: 100%;
-}
-
-/* highlight links */
-.content.text a {
-	padding: 2px;
-	text-decoration: none;
-	line-height: 1.6em;
-	color: #000;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.12),
-				0 1px 2px rgba(0,0,0,0.24);
-
-	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-}
-.content a:hover   {
-	color:#aaa;
-	text-decoration:underline;
-	box-shadow: 0 14px 28px rgba(0,0,0,0.25),
-				0 10px 10px rgba(0,0,0,0.22);
-	border: none;
-}
 
 
 @media screen and (max-width: 960px){
@@ -310,74 +92,7 @@ div.boxImage img{
 }
 
 
-/* 
-@media screen and (max-width: 960px) and (orientation: landscape) {
-	.box2x2:not(.text):before{
-		content: "";
-		display: block;
-		padding-top: 56.25%;
-	}
-} */
-
-/* font sizes: */
-@media screen and (min-width: 1101px) and (max-width: 1280px) {
-	html{
-		font-size: 14px;
-	}
-}
-
-@media screen and (min-width: 961px) and (max-width: 1100px) {
-	html{
-		font-size: 12px;
-	}
-}
-
-@media screen and (min-width: 701px) and (max-width: 960px) {
-	html{
-		font-size: 18px;
-	}
-}
-
-@media screen and (min-width: 640px) and (max-width: 700px) {
-	html{
-		font-size: 16px;
-	}
-}
-
-@media screen and (max-width: 640px) {
-	
-	html {
-		font-size: 16px;
-	}
-	
-	//parent of content text egal welche box sollte auf 
-	/* set all textboxes to 16:18 */
-	.box4x2.text,
-	.box2x2.text,
-	.box2x1.text{
-		/* border: 3px solid red; */
-	}
-	.box4x2.text:before,
-	.box2x1.text:before 
-	{
-		content: "";
-		display: block;
-		padding-top: 112.5%;
-	}
-	.box2x2.text:before
-	{
-		content: "";
-		display: block;
-		padding-top: 225%;
-	}
-}
 
 
 
 
-/* reset link behavior for each browser */
-a{ }
-a:link { }
-a:visited {text-decoration: overline;}
-a:hover   {color:#f00; background-color:transparent; text-decoration:underline}
-a:active { }

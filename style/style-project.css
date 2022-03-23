@@ -33,7 +33,7 @@ div#BackButton:hover {
 
 /* tweaking the margin between floated and not floated elements because fuck you css */
 div.margin-before-noFloat {
-	margin-bottom: 60px;
+	margin-bottom: 30px;
 }
 
 ol {
